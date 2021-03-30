@@ -24,32 +24,32 @@ EXPOSE 3000
 
 # Import build args as envs - START #
 ## Database and caching ##
-ARG PGHOST \
-    PGPORT \
-    PGUSER \
-    PGDATABASE \
-    PGPASSWORD
+ARG PGHOST
+ARG PGPORT
+ARG PGUSER
+ARG PGDATABASE
+ARG PGPASSWORD
 ENV DB_HOST=${PGHOST} \
     DB_PORT=${PGPORT} \
     DB_USER=${PGUSER} \
     DB_PASSWORD=${PGPASSWORD} \
     DB_NAME=${PGDATABASE}
-ARG REDISHOST \
-    REDISUSER \
-    REDISPORT \
-    REDISPASSWORD	
+ARG REDISHOST
+ARG REDISUSER
+ARG REDISPORT
+ARG REDISPASSWORD	
 ENV REDIS_HOST=${REDISHOST} \
     REDIS_USER=${REDISUSER} \
     REDIS_PORT=${REDISPORT} \
     REDIS_PASSWORD=${REDISPASSWORD}
     
 ## Email ##
-ARG MAIL_HOST \
-    MAIL_PORT \
-    MAIL_SECURE=true \
-    MAIL_USER \
-    MAIL_FROM="Recap Time Bot <shortlinks-noreply@mail.rtapp.tk>" \
-    MAIL_PASSWORD
+ARG MAIL_HOST
+ARG MAIL_PORT
+ARG MAIL_SECURE=true
+ARG MAIL_USER
+ARG MAIL_FROM="Recap Time Bot <shortlinks-noreply@mail.rtapp.tk>"
+ARG MAIL_PASSWORD
 ENV MAIL_HOST=${MAIL_HOST} \
     MAIL_PORT=${MAIL_PORT} \
     MAIL_SECURE=${MAIL_SECURE} \
@@ -58,18 +58,18 @@ ENV MAIL_HOST=${MAIL_HOST} \
     MAIL_PASSWORD=${MAIL_PASSWORD}
 
 ## Instance config ##
-ARG SITE_NAME \
-    DEFAULT_DOMAIN=https://link.rtapp.tk \
-    ADMIN_EMAILS \
-    REPORT_EMAIL=abuse@madebythepins.tk \
-    CONTACT_EMAIL=yourfriends@madebythepins.tk \
-    DISALLOW_REGISTRATION=false \
-    DISALLOW_ANONYMOUS_LINKS=false \
-    USER_LIMIT_PER_DAY=50 \
-    JWT_SECRET=securekey \
-    LINK_LENGTH=6 \
-    DEFAULT_MAX_STATS_PER_LINK=5000 \
-    NON_USER_COOLDOWN=0
+ARG SITE_NAME
+ARG DEFAULT_DOMAIN=https://link.rtapp.tk
+ARG ADMIN_EMAILS
+ARG REPORT_EMAIL=abuse@madebythepins.tk
+ARG CONTACT_EMAIL=yourfriends@madebythepins.tk
+ARG DISALLOW_REGISTRATION=false
+ARG DISALLOW_ANONYMOUS_LINKS=false
+ARG USER_LIMIT_PER_DAY=50
+ARG JWT_SECRET=securekey
+ARG LINK_LENGTH=6
+ARG DEFAULT_MAX_STATS_PER_LINK=5000
+ARG NON_USER_COOLDOWN=0
 ENV SITE_NAME=${SITE_NAME} \
     DEFAULT_DOMAIN=$DEFAULT_DOMAIN} \
     ADMIN_EMAILS=${ADMIN_EMAILS} \
@@ -86,11 +86,11 @@ ENV SITE_NAME=${SITE_NAME} \
 ## Google APIs
 ## NOTE: Google Analytics are excluded due to privacy reasons. ##
 # Invisible reCaptcha secret key, get one at https://www.google.com/recaptcha/intro/
-ARG RECAPTCHA_SITE_KEY \
-    RECAPTCHA_SECRET_KEY \
+ARG RECAPTCHA_SITE_KEY
+ARG RECAPTCHA_SECRET_KEY
     # Google Cloud API to prevent from users from submitting malware URLs.
     # API Docs: https://developers.google.com/safe-browsing/v4/get-started
-    GOOGLE_SAFE_BROWSING_KEY
+ARG GOOGLE_SAFE_BROWSING_KEY
 ENV RECAPTCHA_SITE_KEY=${RECAPTCHA_SITE_KEY} \
     RECAPTCHA_SECRET_KEY=${RECAPTCHA_SECRET_KEY} \
     GOOGLE_SAFE_BROWSING_KEY=${GOOGLE_SAFE_BROWSING_KEY}
