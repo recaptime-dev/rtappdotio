@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 
 RUN apk add --update bash
 
@@ -21,80 +21,6 @@ RUN npm run build
 # Expose ports
 ENV PORT=3000
 EXPOSE 3000
-
-# Import build args as envs - START #
-## Database and caching ##
-ARG PGHOST
-ARG PGPORT
-ARG PGUSER
-ARG PGDATABASE
-ARG PGPASSWORD
-ENV DB_HOST=${PGHOST} \
-    DB_PORT=${PGPORT} \
-    DB_USER=${PGUSER} \
-    DB_PASSWORD=${PGPASSWORD} \
-    DB_NAME=${PGDATABASE}
-ARG REDISHOST
-ARG REDISUSER
-ARG REDISPORT
-ARG REDISPASSWORD	
-ENV REDIS_HOST=${REDISHOST} \
-    REDIS_USER=${REDISUSER} \
-    REDIS_PORT=${REDISPORT} \
-    REDIS_PASSWORD=${REDISPASSWORD}
-    
-## Email ##
-ARG MAIL_HOST
-ARG MAIL_PORT
-ARG MAIL_SECURE=true
-ARG MAIL_USER
-ARG MAIL_FROM="Recap Time Bot <shortlinks-noreply@mail.rtapp.tk>"
-ARG MAIL_PASSWORD
-ENV MAIL_HOST=${MAIL_HOST} \
-    MAIL_PORT=${MAIL_PORT} \
-    MAIL_SECURE=${MAIL_SECURE} \
-    MAIL_USER=${MAIL_USER} \
-    MAIL_FROM=${MAIL_FROM} \
-    MAIL_PASSWORD=${MAIL_PASSWORD}
-
-## Instance config ##
-ARG SITE_NAME
-ARG DEFAULT_DOMAIN=https://link.rtapp.tk
-ARG ADMIN_EMAILS
-ARG REPORT_EMAIL=abuse@madebythepins.tk
-ARG CONTACT_EMAIL=yourfriends@madebythepins.tk
-ARG DISALLOW_REGISTRATION=false
-ARG DISALLOW_ANONYMOUS_LINKS=false
-ARG USER_LIMIT_PER_DAY=50
-ARG JWT_SECRET=securekey
-ARG LINK_LENGTH=6
-ARG DEFAULT_MAX_STATS_PER_LINK=5000
-ARG NON_USER_COOLDOWN=0
-ENV SITE_NAME=${SITE_NAME} \
-    DEFAULT_DOMAIN=$DEFAULT_DOMAIN} \
-    ADMIN_EMAILS=${ADMIN_EMAILS} \
-    REPORT_EMAIL=${REPORT_EMAIL} \
-    CONTACT_EMAil=${CONTACT_EMAIL} \
-    DISALLOW_REGISTRATION=${DISALLOW_REGISTRATION} \
-    DISALLOW_ANONYMOUS_LINKS=${DISALLOW_ANONYMOUS_LINKS} \
-    USER_LIMIT_PER_DAY=${USER_LIMIT_PER_DAY} \
-    JWT_SECRET=${JWT_SECRET} \
-    LINK_LENGTH=${LINK_LENGTH} \
-    DEFAULT_MAX_STATS_PER_LINK=${DEFAULT_MAX_STATS_PER_LINK} \
-    NON_USER_COOLDOWN=${NON_USER_COOLDOWN}
-
-## Google APIs
-## NOTE: Google Analytics are excluded due to privacy reasons. ##
-# Invisible reCaptcha secret key, get one at https://www.google.com/recaptcha/intro/
-ARG RECAPTCHA_SITE_KEY
-ARG RECAPTCHA_SECRET_KEY
-    # Google Cloud API to prevent from users from submitting malware URLs.
-    # API Docs: https://developers.google.com/safe-browsing/v4/get-started
-ARG GOOGLE_SAFE_BROWSING_KEY
-ENV RECAPTCHA_SITE_KEY=${RECAPTCHA_SITE_KEY} \
-    RECAPTCHA_SECRET_KEY=${RECAPTCHA_SECRET_KEY} \
-    GOOGLE_SAFE_BROWSING_KEY=${GOOGLE_SAFE_BROWSING_KEY}
-# Import build args as envs - END #
 
 # Running the app
 CMD [ "npm", "start" ]
