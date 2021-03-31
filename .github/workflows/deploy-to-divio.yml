@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: git-push
     steps:
-      - uses: zent-contrib/git-branch-sync-action@v1
+      - uses: zent-contrib/sync-git-branch@v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DIVIO_SSH_KEY_PRIVATE }}
         with:
