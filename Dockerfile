@@ -1,6 +1,6 @@
 FROM node:14-alpine
 
-RUN apk add --update bash
+RUN apk add --update bash coreutils
 
 # Setting working directory. 
 WORKDIR /usr/src/app
