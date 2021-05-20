@@ -1,5 +1,8 @@
 import env from "./env";
 
+// only for debugging purposes only
+console.log("config-debugger: " + env);
+
 import asyncHandler from "express-async-handler";
 import cookieParser from "cookie-parser";
 import passport from "passport";
