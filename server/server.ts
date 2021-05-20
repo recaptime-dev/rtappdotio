@@ -1,7 +1,7 @@
 import env from "./env";
 
 // only for debugging purposes only
-console.log("config-debugger: " + env);
+console.log("config-debugger: " + process.env);
 
 import asyncHandler from "express-async-handler";
 import cookieParser from "cookie-parser";

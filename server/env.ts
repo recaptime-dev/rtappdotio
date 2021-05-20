@@ -1,5 +1,9 @@
 import { cleanEnv, num, str, bool } from "envalid";
 
+// import from our dotenv file first
+require("dotenv").config();
+
+// then do this
 const env = cleanEnv(process.env, {
   PORT: num({ default: 3000 }),
   SITE_NAME: str({ example: "Kutt" }),
