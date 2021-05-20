@@ -1,7 +1,15 @@
 import env from "./env";
 
 // only for debugging purposes only
-console.log("config-debugger: " + process.env);
+console.log("config-debugger: Admins are " + env.ADMIN_EMAILS);
+console.log(
+  "config-debugger: Report email is " +
+    env.REPORT_EMAIL +
+    " while contact email is " +
+    env.CONTACT_EMAIL
+);
+console.log("config-debugger: Default domain is" + env.DEFAULT_DOMAIN);
+console.log("config-debugger: Website title is " + env.SITE_NAME);
 
 import asyncHandler from "express-async-handler";
 import cookieParser from "cookie-parser";
