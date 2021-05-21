@@ -50,9 +50,11 @@ const SettingsApi: FC = () => {
       <Text mb={4}>
         In additional to this website, you can use the API to create, delete and
         get shortend URLs. If
-        {" you're"} not familiar with API, {"don't"} generate the key. DO NOT
+        {" you're"} not familiar with API or not using official
+        Kutt browser extensions and third-party extensions,
+        {"don't"} generate the key. DO NOT
         share this key on the client side of your website.{" "}
-        <ALink href="https://docs.kutt.it" title="API Docs" target="_blank">
+        <ALink href="https://docs.rtapp.tk" title="API Docs" target="_blank">
           Read API docs.
         </ALink>
       </Text>
@@ -96,7 +98,7 @@ const SettingsApi: FC = () => {
       )}
       <Button mt={3} color="purple" onClick={onSubmit} disabled={loading}>
         <Icon name={loading ? "spinner" : "zap"} mr={2} stroke="white" />
-        {loading ? "Generating..." : apikey ? "Regenerate" : "Generate"} key
+        {loading ? "Generating..." : apikey ? "Rotate" : "Generate"} key
       </Button>
       <Text fontSize={15} mt={3} color={message.color}>
         {message.text}

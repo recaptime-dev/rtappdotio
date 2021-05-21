@@ -63,8 +63,8 @@ const SettingsPassword: FC = () => {
             name: "password",
             validate: value => {
               const val = value.trim();
-              if (!val || val.length < 8) {
-                return "Password must be at least 8 chars.";
+              if (!val || val.length < 12) {
+                return "Password must be at least 12 chars.";
               }
             }
           })}

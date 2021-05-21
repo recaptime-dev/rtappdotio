@@ -78,8 +78,7 @@ const SettingsDomain: FC = () => {
         <b>example.com/shorturl.</b>
       </Text>
       <Text mb={4}>
-        Point your domain A record to <b>192.64.116.170</b> then add the domain
-        via form below:
+        Point your domain A record to <b>192.64.116.170</b> (or CNAME your subdomain to {publicRuntimeConfig.DEFAULT_DOMAIN} then add the domain via form below:
       </Text>
       {domains.length > 0 && (
         <Table my={3} scrollWidth="550px">
@@ -175,6 +174,7 @@ const SettingsDomain: FC = () => {
         <Text textAlign="center">
           Are you sure do you want to delete the domain{" "}
           <Span bold>"{domainToDelete && domainToDelete.address}"</Span>?
+          There'll be no turning back once you do this.
         </Text>
         <Flex justifyContent="center" mt={44}>
           {deleteLoading ? (

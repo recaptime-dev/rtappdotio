@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Router from "next/router";
 import Link from "next/link";
 import axios from "axios";
+const { publicRuntimeConfig } = getConfig();
 
 import { useStoreState, useStoreActions } from "../store";
 import { APIv2, DISALLOW_REGISTRATION } from "../consts";
@@ -61,8 +62,8 @@ const LoginPage = () => {
         return setError("Email address is not valid.");
       }
 
-      if (password.trim().length < 8) {
-        return setError("Password must be at least 8 chars long.");
+      if (password.trim().length < 12) {
+        return setError("Password must be at least 12 chars long.");
       }
 
       setError("");
@@ -101,7 +102,8 @@ const LoginPage = () => {
         {verifying ? (
           <H2 textAlign="center" light>
             A verification email has been sent to{" "}
-            <Email>{formState.values.email}</Email>.
+            <Email>{formState.values.email}</Email>. Check your spam
+            folder for an message from {publicRuntimeConfig.MAIL_FROM_ADDRESS}
           </H2>
         ) : (
           <LoginForm id="login-form" onSubmit={onSubmit("login")}>
@@ -185,3 +187,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

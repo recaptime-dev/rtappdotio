@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
       - redis
-    command: ["./wait-for-it.sh", "postgres:5432", "--", "npm", "start"]
+    command: ["/app/wait-for-it.sh", "postgres:5432", "--", "/app/start-rtappdotio"]
     ports:
       - "3000:3000"
     env_file:
