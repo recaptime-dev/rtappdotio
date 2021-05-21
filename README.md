@@ -29,10 +29,10 @@ While our Kutt instance is used internally for our social posts and placing link
 - **Contact email**: <yourfriends@madebythepins.tk>
 - **Abuse Team contacts**: <abuse@madebythepins.tk> and <https://reportabuse.rtapp.tk> (soon)
 - **Adminstration contacts**:
-  - [Andrei Jiroh](
+  - [Andrei Jiroh](https://github.com/AndreiJirohHaliliDev2006#contact-me-elsewhere)
 - **ToS**: <https://legal.madebythepins.tk/link-shortener/tos/legalese>
 - **Privacy info**:
-  - Full text: <>
+  - Full text: <https://legal.madebythepins.tk/404.html> (TK)
   - Third-party services we use in website:
     - Google APIs: Safe Browsing API
     - hCaptcha (will implemented soon)

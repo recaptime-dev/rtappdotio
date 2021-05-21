@@ -10,15 +10,29 @@ buildFrontend() {
 }
 
 main() {
+  if [[ $RAILWAY_STATIC_URL != "" ]]; then
+    echo "==> Railway installation detected, grabbing Postgres and"
+    echo "    Redis configuration..."
+
+    # Postgres
+    export DB_HOST=${PGHOST} DB_PORT=${PGPORT} DB_NAME=${PGDATABASE} DB_PASSOWRD=${PGPASSWORD} DB_USER=${PGUSER}
+
+    # Redis
+    export REDIS_PASSWORD=${REDISPASSWORD} REDIS_PORT=${REDISPORT} REDIS_USER=${REDISUSER} REDIS_HOST=${REDISHOST}
+  fi
+
   if [[ $1 == "dev" ]] || [[ $1 == "develop" ]] || [[ $NODE_ENV == "development" ]]; then
     echo "==> Running in devmode..."
     npm run dev
-  elif [[ $1 == "production" ]] || [[ $1 == "prod" ]] || $NODE_ENV == "production" ]]; then
+  elif [[ $1 == "production" ]] || [[ $1 == "prod" ]] || [[ $NODE_ENV == "production" ]]; then
     migrateDb
 
     if [[ $FORCE_REBUILD_CLIENT != "" ]]; then
        buildFrontend
     fi
+
+    echo "config-debugger: Postgres - postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+    echo "config-debugger: Redis - redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}"
 
     echo "==> Running in production..."
     npm run start
@@ -30,9 +44,9 @@ main() {
     echo ""
     echo "Available variables:"
     echo "  NODE_ENV                         Used for detecting modes, especially in PaaS services"
-    echo "  FORCE_REBUILD_CLIENT=1            Forcpe the script to rebuild client-side pages"
+    echo "  FORCE_REBUILD_CLIENT             Force the script to rebuild client-side pages"
     exit
   fi
 }
 
-main
+main "$@"
