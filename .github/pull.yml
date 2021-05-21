@@ -1,3 +1,5 @@
-#version: 2
-#rules:
-# todo
+version: "1"
+rules:
+  - base: "prod"
+    upstream: "develop"
+    mergeMethod: hardreset
