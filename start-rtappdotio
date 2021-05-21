@@ -31,6 +31,9 @@ main() {
        buildFrontend
     fi
 
+    echo "config-debugger: Postgres - postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+    echo "config-debugger: Redis - redis://${REDIS_USER}:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}"
+
     echo "==> Running in production..."
     npm run start
   else
