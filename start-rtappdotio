@@ -28,7 +28,7 @@ main() {
   fi
 
   if [[ $1 == "dev" ]] || [[ $1 == "develop" ]] || [[ $NODE_ENV == "development" ]]; then
-    configDebugger
+    configDebugger && migrateDb
 
     echo "==> Running in devmode..."
     npm run dev
@@ -39,7 +39,7 @@ main() {
        buildFrontend
     fi
    
-    configDebugger
+    configDebugger && migrateDb
 
     echo "==> Running in production..."
     npm run start
