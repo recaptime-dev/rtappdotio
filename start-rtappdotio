@@ -41,7 +41,7 @@ main() {
     echo ""
     echo "Available variables:"
     echo "  NODE_ENV                         Used for detecting modes, especially in PaaS services"
-    echo "  FORCE_REBUILD_CLIENT=1            Forcpe the script to rebuild client-side pages"
+    echo "  FORCE_REBUILD_CLIENT             Force the script to rebuild client-side pages"
     exit
   fi
 }
