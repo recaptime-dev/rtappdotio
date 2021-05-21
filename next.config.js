@@ -11,6 +11,6 @@ module.exports = {
     REPORT_EMAIL: config.REPORT_EMAIL || "abuse@madebythepins.tk",
     DISALLOW_ANONYMOUS_LINKS: config.DISALLOW_ANONYMOUS_LINKS || "false",
     DISALLOW_REGISTRATION: config.DISALLOW_REGISTRATION || "false",
-    SENTRY_PUBLIC_DSN: config..SENTRY_PUBLIC_DSN,
+    SENTRY_PUBLIC_DSN: config.SENTRY_PUBLIC_DSN,
   }
 };
