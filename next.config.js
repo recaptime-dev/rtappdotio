@@ -1,5 +1,5 @@
 require("dotenv").config();
-const config = new process.env;
+const config = process.env;
 
 module.exports = {
   publicRuntimeConfig: {
