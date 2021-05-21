@@ -5,7 +5,7 @@ This repo contains the source code for our Kutt instance on [rtapp.tk](https://r
 While our Kutt instance is used internally for our social posts and placing links with spoilers under an link shortener in Recap Time newsletter issues, you can register for an account and create links.
 
 [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/MadeByThePinsHub/rtappdotio/#contributing)
-[![GitHub license](https://img.shields.io/github/license/thedevs-network/kutt.svg)](https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/MadeByThePinsHub/rtappdotio.svg)](https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/LICENSE)
 
 ## Table of Contents
 
