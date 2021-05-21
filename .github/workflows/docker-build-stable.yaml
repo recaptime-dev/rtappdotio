@@ -2,7 +2,7 @@ name: Build and push image (develop)
 
 env:
   repository: "madebythepinshub/rtappdotio"
-  tag: "develop"
+  tag: "stable"
   # Edit this if you forked the repo
   # otherwise, comment out everything about Quay.io
   QUAYIO_USERNAME: madebythepinshub+github_actions
@@ -10,7 +10,7 @@ env:
 on:
   push:
     branches:
-      - develop
+      - prod
 
 jobs:
   docker-ci:
