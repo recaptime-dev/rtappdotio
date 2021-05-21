@@ -1,12 +1,14 @@
 {
-  "name": "kutt",
-  "version": "2.7.2",
-  "description": "Modern URL shortener.",
+  "name": "@recaptime/link-shprtener",
+  "version": "0.1.0-upstream2.7.2",
+  "description": "Modern URL shortener, base on @thedevs-network/kutt",
   "main": "./production-server/server.js",
   "scripts": {
     "test": "jest",
     "docker:build": "docker build -t kutt .",
     "docker:run": "docker run -p 3000:3000 --env-file .env -d kutt:latest",
+    "docker:prod": "docker run -p 3000:3000 -e NODE_ENV=production --env-file .env -d docker pull ghcr.io/madebythepinshub/rtappdotio:latest",
+    "docker:develop": "docker run -p 3000:3000 -e NODE_ENV=development --env-file .env -d docker pull ghcr.io/madebythepinshub/rtappdotio:develop"
     "dev": "cross-env NODE_ENV=development nodemon server/server.ts",
     "build": "rimraf production-server && tsc --project tsconfig.json && copyfiles -f \"server/mail/*.html\" production-server/mail && next build client/ ",
     "start": "cross-env NODE_ENV=production node production-server/server.js",
@@ -23,17 +25,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheDevs-Network/kutt.git"
+    "url": "git+https://github.com/MadeByThePinsHub/rtappdotio"
   },
   "keywords": [
     "url-shortener"
   ],
-  "author": "Pouria Ezzati <ezzati.upt@gmail.com>",
+  "author": "Andrei Jiroh <andreijiroh@madebythepubs.tk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TheDevs-Network/kutt/issues"
+    "url": "https://github.com/MadeByThePinsHub/rtappdotio/issues"
   },
-  "homepage": "https://github.com/TheDevs-Network/kutt#readme",
+  "homepage": "https://rtapp.tk",
   "dependencies": {
     "@sentry/apm": "^5.21.1",
     "@sentry/node": "^5.21.1",
