@@ -66,7 +66,7 @@ const Verify: NextPage<Props> = ({ token }) => {
         <Col alignItems="center">
           <MessageWrapper>
             <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-            <Message>Invalid verification.</Message>
+            <Message>Invalid verification link. If symptoms persist, contact the instance admin.</Message>
           </MessageWrapper>
           <Link href="/login">
             <ALink href="/login" forButton>

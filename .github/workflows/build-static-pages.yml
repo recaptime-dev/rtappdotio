@@ -1,0 +1,17 @@
+name: Static Page Buulder
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+        name: Install deps
+      - run: npm run build
+        name: Run build

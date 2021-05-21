@@ -181,7 +181,7 @@ export const report: Handler = async (req, res) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: env.REPORT_EMAIL,
-    subject: "[REPORT]",
+    subject: "[REPORT] Abuse report for link shortener service",
     text: link,
     html: link
   });

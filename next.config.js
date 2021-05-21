@@ -1,15 +1,16 @@
-const { parsed: localEnv } = require("dotenv").config();
+require("dotenv").config();
+const config = new process.env;
 
 module.exports = {
   publicRuntimeConfig: {
-    CONTACT_EMAIL: localEnv && localEnv.CONTACT_EMAIL,
-    SITE_NAME: localEnv && localEnv.SITE_NAME,
-    DEFAULT_DOMAIN: localEnv && localEnv.DEFAULT_DOMAIN,
-    RECAPTCHA_SITE_KEY: localEnv && localEnv.RECAPTCHA_SITE_KEY,
-    GOOGLE_ANALYTICS: localEnv && localEnv.GOOGLE_ANALYTICS,
-    REPORT_EMAIL: localEnv && localEnv.REPORT_EMAIL,
-    DISALLOW_ANONYMOUS_LINKS: localEnv && localEnv.DISALLOW_ANONYMOUS_LINKS,
-    DISALLOW_REGISTRATION: localEnv && localEnv.DISALLOW_REGISTRATION,
-    SENTRY_PUBLIC_DSN: localEnv && localEnv.SENTRY_PUBLIC_DSN,
+    CONTACT_EMAIL: config.CONTACT_EMAIL || "yourfriends@madebythepins.tk",
+    SITE_NAME: config.SITE_NAME || "rtappdotio",
+    DEFAULT_DOMAIN: config.DEFAULT_DOMAIN || "rtapp.io",
+    RECAPTCHA_SITE_KEY: config.RECAPTCHA_SITE_KEY,
+    GOOGLE_ANALYTICS: config.GOOGLE_ANALYTICS,
+    REPORT_EMAIL: config.REPORT_EMAIL || "abuse@madebythepins.tk",
+    DISALLOW_ANONYMOUS_LINKS: config.DISALLOW_ANONYMOUS_LINKS || "false",
+    DISALLOW_REGISTRATION: config.DISALLOW_REGISTRATION || "false",
+    SENTRY_PUBLIC_DSN: config..SENTRY_PUBLIC_DSN,
   }
 };

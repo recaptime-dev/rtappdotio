@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Production sutff, these should be habdled on npm run dev
+migrateDb() {
+  npm run migrate
+}
+buildFrontend() {
+  echo "==> Rebuilding static pages..."
+  npm run build
+}
+
+main() {
+  if [[ $1 == "dev" ]] || [[ $1 == "develop" ]] || [[ $NODE_ENV == "development" ]]; then
+    echo "==> Running in devmode..."
+    npm run dev
+  elif [[ $1 == "production" ]] || [[ $1 == "prod" ]] || $NODE_ENV == "production" ]]; then
+    migrateDb
+
+    if [[ $FORCE_REBUILD_CLIENT != "" ]]; then
+       buildFrontend
+    fi
+
+    echo "==> Running in production..."
+    npm run start
+  else
+    echo "Supported options:"
+    echo "  prod, production                 Run in production, with only database migrations"
+    echo "  prod-build, production-build     Run in production, plus build static pages first."
+    echo "  dev, develop, development        Run in development, with Nodemon."
+    echo ""
+    echo "Available variables:"
+    echo "  NODE_ENV                         Used for detecting modes, especially in PaaS services"
+    echo "  FORCE_REBUILD_CLIENT=1            Forcpe the script to rebuild client-side pages"
+    exit
+  fi
+}
+
+main
