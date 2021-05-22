@@ -31,7 +31,7 @@ const Footer: FC = () => {
           The Devs
         </ALink>
         , and improved by
-        <ALink href="https://madebythepins.tk" title="friends at The Pins Team"
+        <ALink href="https://madebythepins.tk" title="friends at The Pins Team">
           The Pins Team
         </ALink>
         .{" | "}
