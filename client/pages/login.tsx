@@ -6,6 +6,8 @@ import styled from "styled-components";
 import Router from "next/router";
 import Link from "next/link";
 import axios from "axios";
+
+import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
 import { useStoreState, useStoreActions } from "../store";
