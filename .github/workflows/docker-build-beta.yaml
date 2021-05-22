@@ -2,7 +2,9 @@ name: Build and push image (develop)
 
 env:
   repository: "madebythepinshub/rtappdotio"
-  tag: "stable"
+  # since it's still needed to be tagged on GitHub before we ever
+  # push to stable channel, we would label these as beta.
+  tag: "beta"
   # Edit this if you forked the repo
   # otherwise, comment out everything about Quay.io
   QUAYIO_USERNAME: madebythepinshub+github_actions
