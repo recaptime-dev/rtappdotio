@@ -81,7 +81,7 @@ You need to have [Node.js](https://nodejs.org/), [PostgreSQL](https://www.postgr
 
 #### With Compose
 
-Download the [`docker-compose.yml`](docker-compose.yml) and the [`.docker.env`](.docker.env)-file from the repository and configure the `.docker.env` ([see below](#configuration)). 
+Download the [`docker-compose.yml`](docker-compose.yml) and the [`.docker.env`](.docker.env)file from the repository, duplicate it as `.env` and configure the `.docker.env` ([see below](#configuration)). 
 To execute Kutt you simply have to run `docker-compose up -d` command and then the app should be ready on port "3000".
 
 The `docker-compose.yml` configuration uses our own Kutt image available on [GitHub Container Registry](https://ghcr.io/MadeByThePinsHub/rtappdotio), with mirrors on [Red Hat Quay Registry](https://quay.io/MadeByThePinsHub/rtappdotio) and [Docker Hub](https://hub.docker.com/MadeByThePinsHub/rtappdotio)
@@ -90,7 +90,7 @@ The `docker-compose.yml` configuration uses our own Kutt image available on [Git
 
 * Pull the Docker image first into your machine. Use the same command if you need to update.
 
-```
+```sh
 # latest tag is same as develop, so please use the stable tag instead
 # if Docker Hub is down or want to use other registries, prefix
 # either quay.io/ or ghcr.io/ to the image name.
@@ -108,12 +108,28 @@ TODO
 
 For the minimal configuration the following settings have to be changed in the `.env`-file:
 
-- **DEFAULT_DOMAIN**: The domain of your kutt instance
+- **DEFAULT_DOMAIN**: The domain of your rtappdotio instance
 - **DB_**: The DB credentials (when you use docker-compose you can skip these)
 - **ADMIN_EMAILS**: A comma-separated list of the administrator-accounts
 - **RECAPTCHA_**: Get your reCaptcha v3 API keys or delete this setting if you don't want to use it. We're working on adding hCaptcha soon.
-- **MAIL_**: Enter the SMTP-server's credentials (The experience shows SSL works better than STARTTLS; The mail config is required to easily create accounts, see [this comment](https://github.com/thedevs-network/kutt/issues/269#issuecomment-628604256) how it can be done manually)
+- **MAIL_**: Enter the SMTP server's credentials (The experience shows SSL works better than STARTTLS; The mail config is required to easily verify new accounts and change email address in the UI, see [this comment in the upstream](https://github.com/thedevs-network/kutt/issues/269#issuecomment-628604256) how it can be done manually)
 - **REPORT_EMAIL**: Kutt offers a form to report malicious links which are sent to this mail-address
+
+### Advanced Configuration
+
+To change the embedded form on the report page, edit lines TODO in [`client/.tsx`](client/), and replace it with the following templates, replacing `FORM-URL` into your form's URL.
+
+* Google Forms
+
+```tsx
+// WIP
+```
+
+* Yandex.Forms
+
+```tsx
+// WIP
+```
 
 ## Browser Extensions
 

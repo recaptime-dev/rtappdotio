@@ -3,13 +3,13 @@ import * as p from "../../package.json";
 export default {
   openapi: "3.0.0",
   info: {
-    title: "Kutt.it",
-    description: "API reference for [http://kutt.it](http://kutt.it).\n",
+    title: "Kutt API ref for rtapp.tk",
+    description: "API reference for The Pins Team's [public link shortener](http://rtapp.tk), based on [Kutt](https://github.com/thedevs-network/kutt).\n",
     version: p.version
   },
   servers: [
     {
-      url: "https://kutt.it/api/v2"
+      url: "https://rtapp.tk/api/v2"
     }
   ],
   tags: [

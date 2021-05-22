@@ -46,7 +46,7 @@ export const verification = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.email,
-    subject: "Verify your account",
+    subject: "Verify your new rtapp-link-shortener account",
     text: verifyMailText
       .replace(/{{verification}}/gim, user.verification_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN)
@@ -66,7 +66,7 @@ export const changeEmail = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.change_email_address,
-    subject: "Verify your new email address",
+    subject: "Verify your new email address | rtapp-link-shortener",
     text: changeEmailText
       .replace(/{{verification}}/gim, user.change_email_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN)
@@ -86,7 +86,7 @@ export const resetPasswordToken = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.email,
-    subject: "Reset your password",
+    subject: "Reset your password | rtapp-link-shortener",
     text: resetMailText
       .replace(/{{resetpassword}}/gm, user.reset_password_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN),

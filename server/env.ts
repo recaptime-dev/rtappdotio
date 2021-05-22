@@ -6,8 +6,8 @@ require("dotenv").config();
 // then do this
 const env = cleanEnv(process.env, {
   PORT: num({ default: 3000 }),
-  SITE_NAME: str({ example: "Kutt" }),
-  DEFAULT_DOMAIN: str({ example: "kutt.it" }),
+  SITE_NAME: str({ example: "Recap Time Link Shortener" }),
+  DEFAULT_DOMAIN: str({ example: "rtapp.io" }),
   LINK_LENGTH: num({ default: 6 }),
   DB_HOST: str({ default: "localhost" }),
   DB_PORT: num({ default: 5432 }),
@@ -17,9 +17,6 @@ const env = cleanEnv(process.env, {
   DB_SSL: bool({ default: false }),
   DB_POOL_MIN: num({ default: 2 }),
   DB_POOL_MAX: num({ default: 10 }),
-  NEO4J_DB_URI: str({ default: "" }),
-  NEO4J_DB_USERNAME: str({ default: "" }),
-  NEO4J_DB_PASSWORD: str({ default: "" }),
   REDIS_HOST: str({ default: "127.0.0.1" }),
   REDIS_PORT: num({ default: 6379 }),
   REDIS_PASSWORD: str({ default: "" }),

@@ -8,7 +8,7 @@ console.log(
     " while contact email is " +
     env.CONTACT_EMAIL
 );
-console.log("config-debugger: Default domain is" + env.DEFAULT_DOMAIN);
+console.log("config-debugger: Default domain is " + env.DEFAULT_DOMAIN);
 console.log("config-debugger: Website title is " + env.SITE_NAME);
 
 import asyncHandler from "express-async-handler";
@@ -95,6 +95,6 @@ app.prepare().then(async () => {
 
   server.listen(port, err => {
     if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`);
+    console.log(`server-up: Ready on http://localhost:${port}`);
   });
 });

@@ -26,17 +26,21 @@ const Footer: FC = () => {
     >
       {!isAuthenticated && <ReCaptcha />}
       <Text fontSize={[12, 13]} py={2}>
-        Made with love by{" "}
-        <ALink href="//thedevs.network/" title="The Devs">
+        Made with love by developers at{" "}
+        <ALink href="https://github.com/thedevs-network/kutt" title="The Devs">
           The Devs
+        </ALink>
+        , and improved by{" "}
+        <ALink href="https://madebythepins.tk" title="friends at The Pins Team">
+          The Pins Team
         </ALink>
         .{" | "}
         <ALink
-          href="https://github.com/thedevs-network/kutt"
-          title="GitHub"
+          href="https://github.com/MadeByThePinsHub/rtappdotio"
+          title="Our fork's sauce on GitHub"
           target="_blank"
         >
-          GitHub
+          Our fork's sauce on GitHub
         </ALink>
         {" | "}
         <ALink href="/terms" title="Terms of Service">
