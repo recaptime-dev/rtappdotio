@@ -16,6 +16,7 @@ import { Col } from "../Layout";
 import Table from "../Table";
 import Modal from "../Modal";
 import Icon from "../Icon";
+import ALink from "../ALink";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -78,7 +79,10 @@ const SettingsDomain: FC = () => {
         <b>example.com/shorturl.</b>
       </Text>
       <Text mb={4}>
-        Point your domain A record to <b>192.64.116.170</b> (or CNAME your subdomain to {publicRuntimeConfig.DEFAULT_DOMAIN} then add the domain via form below:
+        Point your domain A record to <b>192.64.116.170</b> (or CNAME your subdomain to {publicRuntimeConfig.DEFAULT_DOMAIN},{" "}
+        which might violate thr DNS spec) then add the domain via this form below. Depending on where this instance of Kutt is hosted,
+        you may need to <ALink href="https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/docs/custom-domains.md">contact the administrators</ALink> to add them manually to their PaaS service's
+        custom domains confoguration.
       </Text>
       {domains.length > 0 && (
         <Table my={3} scrollWidth="550px">
