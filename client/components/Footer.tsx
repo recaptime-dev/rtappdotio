@@ -43,6 +43,14 @@ const Footer: FC = () => {
           Our fork's sauce on GitHub
         </ALink>
         {" | "}
+        <ALink
+          href="https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/docs/README.md"
+          title="Docs"
+          target="_blank"
+        >
+        Docs
+        </ALink>
+        {" | "}
         <ALink href="/terms" title="Terms of Service">
           Terms of Service
         </ALink>
