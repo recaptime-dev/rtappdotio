@@ -44,7 +44,7 @@ const Footer: FC = () => {
         </ALink>
         {" | "}
         <ALink
-          href="https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/docs/README.md
+          href="https://github.com/MadeByThePinsHub/rtappdotio/blob/develop/docs/README.md"
           title="Docs"
           target="_blank"
         >
