@@ -12,6 +12,6 @@ module.exports = {
     DISALLOW_ANONYMOUS_LINKS: config.DISALLOW_ANONYMOUS_LINKS || "false",
     DISALLOW_REGISTRATION: config.DISALLOW_REGISTRATION || "false",
     SENTRY_PUBLIC_DSN: config.SENTRY_PUBLIC_DSN,
-    MAIL_FROM: config.MAIL_FROM || "Recap Time Bot <link-shortener.local-noreply@mail.rtapp.io>"
+    MAIL_FROM_ADDRESS: config.MAIL_FROM_ADDRESS || "link-shortener.local-noreply@mail.rtapp.io"
   }
 };
