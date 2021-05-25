@@ -37,7 +37,7 @@ const authenticate = (
       }
 
       if (user && user.banned) {
-        throw new CustomError("You're banned from using this website.", 403);
+        throw new CustomError("You're banned from using this website. Contact Support if you think you were banned wrongfully.", 403);
       }
 
       if (user) {
@@ -56,7 +56,7 @@ export const jwt = authenticate("jwt", "Unauthorized.");
 export const jwtLoose = authenticate("jwt", "Unauthorized.", false);
 export const apikey = authenticate(
   "localapikey",
-  "API key is not correct.",
+  "API key is not correct. Probably you used an revoked key?",
   false
 );
 
@@ -196,7 +196,7 @@ export const resetPasswordRequest: Handler = async (req, res) => {
   }
 
   return res.status(200).send({
-    message: "If email address exists, a reset password email has been sent."
+    message: "If email address exists, a reset password email has been sent. Check your inbox and spam folders for the reset password link from " + env.MAIL_FROM_ADDRESS + ". Contact Support if still can't reset your account password."
   });
 };
 
@@ -257,8 +257,8 @@ export const changeEmailRequest: Handler = async (req, res) => {
 
   return res.status(200).send({
     message:
-      "If email address exists, an email " +
-      "with a verification link has been sent."
+      "If email address exists, an email from " + env.MAIL_FROM_ADDRESS +
+      " with a verification link has been sent."
   });
 };
 
