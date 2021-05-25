@@ -1,4 +1,4 @@
-name: Release-based Docker image builder
+name: Build and push image (stable)
 
 env:
   repository: "madebythepinshub/rtappdotio"
@@ -12,7 +12,7 @@ on:
     types: [published]
 
 jobs:
-  release-image:
+  docker-ci-prod:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,4 +47,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
-          tags: ${{ env.repository }}:${{ env.tag }}, ghcr.io/${{ env.repository }}:latest, quay.io/${{ env.repository }}:${{ env.tag }}, quay.io/${{ env.repository }}:latest
+          tags: ghcr.io/${{ env.repository }}:${{ env.tag }}, ghcr.io/${{ env.repository }}:latest, ghcr.io/${{ env.repository }}:stable, quay.io/${{ env.repository }}:${{ env.tag }}, quay.io/${{ env.repository }}:latest, quay.io/${{ env.repository }}:stable
