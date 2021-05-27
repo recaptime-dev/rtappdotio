@@ -50,8 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ docker-ci ]
     environment:
-      name: dev
-      url: https://dev.rtapp.tk
+      name: prod
+      url: https://rtapp.tk
     steps:
       - name: Checkmate Git
         uses: actions/checkout@v2
