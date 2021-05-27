@@ -17,7 +17,7 @@ jobs:
       - run: npm cache verify --verbose && npm cache clean -f
         name: Verify and nuke cache
       - name: Rebuild package-lock.json
-        rub: npm install --package-lock
+        run: npm install --package-lock
       - name: Stage and commit
         run: |
           git config user.name "Recap Time Bot"
