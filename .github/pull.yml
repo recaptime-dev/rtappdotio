@@ -3,3 +3,6 @@ rules:
   - base: "prod"
     upstream: "develop"
     mergeMethod: hardreset
+  - base: "develop"
+    upstream: "update-lockfiles-npmjs"
+    mergeMethod: merge
