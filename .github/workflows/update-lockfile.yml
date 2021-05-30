@@ -3,6 +3,9 @@ name: Lockfile Updater
 on:
   workflow_dispatch:
 
+env:
+  commitMessage: "chore(lockfile-npmjs): Updated lockfiles"
+
 jobs:
   lockfile-fixer:
     runs-on: ubuntu-latest
@@ -24,7 +27,7 @@ jobs:
           git switch -c update-lockfiles-npmjs
           git config user.name "Recap Time Bot"
           git config user.email "RecapTimeBot@users.noreply.github.com"
-          git add package*.json && git commit --signoff -m "chore(lockfile-npmjs): Updated lockfiles"
+          git add package*.json && git commit --signoff -m ${{ env.commitMessage }}
           git fetch && git push origin update-lockfiles-npmjs
       - name: Trigger Pull app
         run: curl -i ${PULL_APP_HOST}/process/${{ github.repository }}
