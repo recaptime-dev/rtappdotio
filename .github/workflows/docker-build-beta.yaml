@@ -56,6 +56,6 @@ jobs:
       - name: Checkmate Git
         uses: actions/checkout@v2
       - name: Setup Railway CLI
-        run: sudo sh -c "$(curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh)"
+        uses: MadeByThePinsHub/setup-railway-cli-action@main
       - name: Deploy code to Railway
         run: RAILWAY_TOKEN=${{ secrets.RAILWAY_TOKEN }} railway up
