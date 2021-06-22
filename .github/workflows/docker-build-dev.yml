@@ -11,9 +11,19 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - "client/**"
+      - "server/**"
+      - "static/**"
+      - "Dockerfile"
+      - "start-rtappdotio"
+      - ".trigger-deploy"
+      - "package*.json"
+  workflow_dispatch:
 
 jobs:
   docker-ci:
+    if: ${{ github.event_name == "push" }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,8 +55,23 @@ jobs:
           push: true
           tags: quay.io/${{ env.repository }}:${{ env.tag }}, ghcr.io/${{ env.repository }}:${{ env.tag }}
   railway-deploy:
+    if: ${{ github.event_name == "push" }}
     runs-on: ubuntu-latest
     needs: [ docker-ci ]
+    environment:
+      name: dev
+      url: https://dev.rtapp.tk
+    steps:
+      - name: Checkmate Git
+        uses: actions/checkout@v2
+      - name: Setup Railway CLI
+        uses: MadeByThePinsHub/setup-railway-cli-action@main
+      - name: Deploy code to Railway
+        run: RAILWAY_TOKEN=${{ secrets.RAILWAY_TOKEN }} railway up
+  railway-manual-deploy:
+    name: Manual Deploy
+    if: ${{ github.event_name != "push" }}
+    runs-on: ubuntu-latest
     environment:
       name: dev
       url: https://dev.rtapp.tk
