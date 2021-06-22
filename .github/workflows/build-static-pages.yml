@@ -3,6 +3,11 @@ name: Static Page Buulder
 on:
   push:
     branches: [ develop ]
+    paths:
+      - "client/**"
+      - "server/**"
+      - "static/**"
+      - "package*.json"
   pull_request:
     branches: [ develop ]
 
