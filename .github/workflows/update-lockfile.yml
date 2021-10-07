@@ -15,9 +15,9 @@ jobs:
           token: ${{ secrets.GH_SERVICE_ACCOUNT_API_KEY }}
           fetch-depth: 0
       - uses: actions/setup-node@v2
-        name: "Setup Node.js 14"
+        name: "Setup Node.js 16"
         with:
-          node-version: '14'
+          node-version: '16'
       - run: npm cache verify --verbose && npm cache clean -f --verbose
         name: Verify and nuke cache
       - name: Rebuild package-lock.json
