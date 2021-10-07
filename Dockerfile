@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:16-alpine
 
 # Only used for Railway to force-rebuild minus the cache.
 ENV LAYER_CACHE=1
