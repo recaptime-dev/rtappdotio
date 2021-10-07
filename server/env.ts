@@ -38,8 +38,14 @@ const env = cleanEnv(process.env, {
   MAIL_PORT: num(),
   MAIL_SECURE: bool({ default: false }),
   MAIL_USER: str(),
-  MAIL_FROM: str({ default: "Department of Shitfuckery <shitfuckery@bullshit.hq>", example: "Recap Time Bot <link-shortener-noreply@rtapp.io>" }),
-  MAIL_FROM_ADDRESS: str({ default: "shitfuckery@bullshit.hq", example: "link-shortener-noreply@rtapp.io" }),
+  MAIL_FROM: str({
+    default: "Department of Shitfuckery <shitfuckery@bullshit.hq>",
+    example: "Recap Time Bot <link-shortener-noreply@rtapp.io>"
+  }),
+  MAIL_FROM_ADDRESS: str({
+    default: "shitfuckery@bullshit.hq",
+    example: "link-shortener-noreply@rtapp.io"
+  }),
   MAIL_PASSWORD: str(),
   REPORT_EMAIL: str({ default: "" }),
   CONTACT_EMAIL: str({ default: "" }),
