@@ -2,7 +2,10 @@ version: "3"
 
 services:
   kutt:
-    image: "ghcr.io/madebythepinshub/rtappdotio:stable"
+    image: "ghcr.io/recaptime/rtappdotio:stable"
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - postgres
       - redis
@@ -17,6 +20,7 @@ services:
       DB_USER: user
       DB_PASSWORD: pass
       REDIS_HOST: redis
+      REDIS_PORT: "6379"
 
   redis:
     image: "redis:6.0-alpine"
@@ -31,6 +35,9 @@ services:
       POSTGRES_DB: kutt
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  maildebug:
+    image: ghcr.io/recaptime/smtp-debuggingserver-docker:master
 
 volumes:
   redis_data:

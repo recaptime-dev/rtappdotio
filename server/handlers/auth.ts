@@ -2,7 +2,7 @@ import { differenceInMinutes, addMinutes, subMinutes } from "date-fns";
 import { Handler } from "express";
 import passport from "passport";
 import bcrypt from "bcryptjs";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import uuid from "uuid/v4";
 import axios from "axios";
 
