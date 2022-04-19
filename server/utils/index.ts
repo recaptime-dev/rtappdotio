@@ -1,5 +1,5 @@
 import ms from "ms";
-import { customAlphabet } from "nanoid";
+import { customAlphabet } from "nanoid/async";
 import JWT from "jsonwebtoken";
 import {
   differenceInDays,
@@ -44,8 +44,8 @@ export const generateId = async (domain_id: number = null) => {
   const address = customAlphabet(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
     env.LINK_LENGTH
-  );
-  const link = await query.link.find({ address: address(), domain_id });
+  ).toString();
+  const link = await query.link.find({ address, domain_id });
   if (!link) return address;
   return generateId(domain_id);
 };

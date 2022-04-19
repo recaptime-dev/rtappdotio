@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import dns from "dns";
 import { Handler } from "express";
 import isbot from "isbot";
-import { customAlphabet } from "nanoid";
+import { customAlphabet } from "nanoid/async";
 import ua from "universal-analytics";
 import URL from "url";
 import urlRegex from "url-regex";
@@ -43,8 +43,8 @@ const generateId = async () => {
   const address = customAlphabet(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
     env.LINK_LENGTH
-  );
-  const link = await findLink({ address: address() });
+  ).toString();
+  const link = await findLink({ address });
   if (!link) return address;
   return generateId();
 };
