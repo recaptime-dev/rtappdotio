@@ -8,6 +8,7 @@
     "docker:build": "docker build -t kutt .",
     "docker:run": "docker run -p 3000:3000 --env-file .env -d kutt:latest",
     "docker:prod": "docker run -p 3000:3000 -e NODE_ENV=production --env-file .env -d ghcr.io/madebythepinshub/rtappdotio:latest",
+    "gitpod:start": "bash ./gitpod-start.sh",
     "docker:develop": "docker run -p 3000:3000 -e NODE_ENV=development --env-file .env -d ghcr.io/madebythepinshub/rtappdotio:develop",
     "dev": "cross-env NODE_ENV=development nodemon server/server.ts",
     "build": "rimraf production-server && tsc --project tsconfig.json && copyfiles -f \"server/mail/*.html\" production-server/mail && next build client/ ",
