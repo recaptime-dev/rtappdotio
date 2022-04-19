@@ -19,8 +19,8 @@ describe("<Footer /> component test", () => {
 
   it("should contain a github link", () => {
     const screen = render(app);
-    const githubLink = screen.getByRole("link", { name: "GitHub" });
-    expect(githubLink).toHaveAttribute("href", "https://github.com/thedevs-network/kutt");
+    const githubLink = screen.getByRole("link", { name: "Source on GitHub" });
+    expect(githubLink).toHaveAttribute("href", "https://github.com/RecapTime/rtappdotio");
   });
 
   it("should contain a TOS link", () => {

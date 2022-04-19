@@ -1,0 +1,9 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: |
+      npm install
+      npm run build
+    command: npm run gitpod:start
+  - name: Mail Debugging
+    command: sudo python3 -m smtpd -c DebuggingServer localhost:2680

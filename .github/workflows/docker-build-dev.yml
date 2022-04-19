@@ -11,9 +11,19 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - "client/**"
+      - "server/**"
+      - "static/**"
+      - "Dockerfile"
+      - "start-rtappdotio"
+      - ".trigger-deploy"
+      - "package*.json"
+  workflow_dispatch:
 
 jobs:
   docker-ci:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -1,4 +1,4 @@
-name: Build and push image (develop)
+name: Build and push image (beta)
 
 env:
   repository: "madebythepinshub/rtappdotio"
@@ -15,7 +15,7 @@ on:
       - prod
 
 jobs:
-  docker-ci:
+  docker-ci-staging:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

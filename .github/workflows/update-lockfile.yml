@@ -1,0 +1,35 @@
+name: Lockfile Updater
+
+on:
+  workflow_dispatch:
+
+env:
+  commitMessage: "chore(lockfile-npmjs): Updated lockfiles for npmjs"
+
+jobs:
+  lockfile-fixer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_SERVICE_ACCOUNT_API_KEY }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        name: "Setup Node.js 16"
+        with:
+          node-version: '16'
+      - run: npm cache verify --verbose && npm cache clean -f --verbose
+        name: Verify and nuke cache
+      - name: Rebuild package-lock.json
+        run: npm install --package-lock
+      - name: Stage and commit
+        run: 
+          git branch update-lockfiles-npmjs && git switch update-lockfiles-npmjs
+          git config user.name "Recap Time Bot"
+          git config user.email "RecapTimeBot@users.noreply.github.com"
+          git add package*.json && git commit --signoff -m "${{ env.commitMessage }}"
+          git fetch && git push origin update-lockfiles-npmjs
+      - name: Trigger Pull app
+        run: curl -i ${PULL_APP_HOST}/process/${{ github.repository }}
+        env:
+          PULL_APP_HOST: "https://ghpullapp-thepinsteam.up.railway.app"

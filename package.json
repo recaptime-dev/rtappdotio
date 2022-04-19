@@ -7,8 +7,9 @@
     "test": "jest",
     "docker:build": "docker build -t kutt .",
     "docker:run": "docker run -p 3000:3000 --env-file .env -d kutt:latest",
-    "docker:prod": "docker run -p 3000:3000 -e NODE_ENV=production --env-file .env -d docker pull ghcr.io/madebythepinshub/rtappdotio:latest",
-    "docker:develop": "docker run -p 3000:3000 -e NODE_ENV=development --env-file .env -d docker pull ghcr.io/madebythepinshub/rtappdotio:develop",
+    "docker:prod": "docker run -p 3000:3000 -e NODE_ENV=production --env-file .env -d ghcr.io/madebythepinshub/rtappdotio:latest",
+    "gitpod:start": "bash ./gitpod-start.sh",
+    "docker:develop": "docker run -p 3000:3000 -e NODE_ENV=development --env-file .env -d ghcr.io/madebythepinshub/rtappdotio:develop",
     "dev": "cross-env NODE_ENV=development nodemon server/server.ts",
     "build": "rimraf production-server && tsc --project tsconfig.json && copyfiles -f \"server/mail/*.html\" production-server/mail && next build client/ ",
     "start": "cross-env NODE_ENV=production node production-server/server.js",
@@ -16,7 +17,7 @@
     "migrate:make": "knex migrate:make --env production",
     "lint": "eslint server/ --ext .js,.ts --fix",
     "lint:nofix": "eslint server/ --ext .js,.ts",
-    "docs:build": "cd docs/api && tsc generate.ts --resolveJsonModule && node generate && cd ../.."
+    "docs:build": "tsc ./docs/api/generate.ts --resolveJsonModule && node ./docs/api/generate"
   },
   "husky": {
     "hooks": {
@@ -30,7 +31,7 @@
   "keywords": [
     "url-shortener"
   ],
-  "author": "Andrei Jiroh <andreijiroh@madebythepubs.tk",
+  "author": "Andrei Jiroh <andreijiroh@madebythepins.tk>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/MadeByThePinsHub/rtappdotio/issues"
@@ -64,7 +65,7 @@
     "knex": "^0.21.1",
     "morgan": "^1.9.1",
     "ms": "^2.1.2",
-    "nanoid": "^1.3.4",
+    "nanoid": "^3.1.31",
     "neo4j-driver": "^1.7.6",
     "next": "^9.4.4",
     "node-cron": "^2.0.3",

@@ -57,7 +57,7 @@ const SettingsApi: FC = () => {
         <ALink href="https://docs.rtapp.tk" title="API Docs" target="_blank">
           Read API docs
         </ALink>
-        and see list of <ALink href="https://github.com/thedevs-network/kutt#integrations" title="Integrations">integrations</ALink>, <ALink href="https://github.com/thedevs-network/kutt#3rd-party-packages" title="3rd-Party Packages">community-maintained packages</ALink> and <ALink href="https://github.com/thedevs-network/kutt#browser-extensions" title="Browser Extensions">extensions for your browser</ALink>.
+        {" "}and see list of <ALink href="https://github.com/thedevs-network/kutt#integrations" title="Integrations">integrations</ALink>, <ALink href="https://github.com/thedevs-network/kutt#3rd-party-packages" title="3rd-Party Packages">community-maintained packages</ALink> and <ALink href="https://github.com/thedevs-network/kutt#browser-extensions" title="Browser Extensions">extensions for your browser</ALink>.
       </Text>
       {apikey && (
         <Flex alignItems={["flex-start", "center"]} my={3}>
