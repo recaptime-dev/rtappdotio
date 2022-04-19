@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import uuid from "uuid/v4";
 import { addMinutes } from "date-fns";
 

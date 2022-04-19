@@ -1,5 +1,5 @@
 import ms from "ms";
-import generate from "nanoid/generate";
+import { customAlphabet } from "nanoid";
 import JWT from "jsonwebtoken";
 import {
   differenceInDays,
@@ -41,11 +41,11 @@ export const signToken = (user: UserJoined) =>
   );
 
 export const generateId = async (domain_id: number = null) => {
-  const address = generate(
+  const address = customAlphabet(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
     env.LINK_LENGTH
   );
-  const link = await query.link.find({ address, domain_id });
+  const link = await query.link.find({ address: address(), domain_id });
   if (!link) return address;
   return generateId(domain_id);
 };

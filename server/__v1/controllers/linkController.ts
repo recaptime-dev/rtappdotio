@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import dns from "dns";
 import { Handler } from "express";
 import isbot from "isbot";
-import generate from "nanoid/generate";
+import { customAlphabet } from "nanoid";
 import ua from "universal-analytics";
 import URL from "url";
 import urlRegex from "url-regex";
@@ -40,11 +40,11 @@ import queue from "../../queues";
 const dnsLookup = promisify(dns.lookup);
 
 const generateId = async () => {
-  const address = generate(
+  const address = customAlphabet(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
     env.LINK_LENGTH
   );
-  const link = await findLink({ address });
+  const link = await findLink({ address: address() });
   if (!link) return address;
   return generateId();
 };
