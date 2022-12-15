@@ -53,7 +53,7 @@
     "easy-peasy": "^5.0.3",
     "email-validator": "^1.2.3",
     "envalid": "^6.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-async-handler": "^1.1.4",
     "express-validator": "^6.3.1",
     "geoip-lite": "^1.4.0",
