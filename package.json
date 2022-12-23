@@ -60,7 +60,7 @@
     "helmet": "^3.21.2",
     "isbot": "^2.5.4",
     "js-cookie": "^2.2.1",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "knex": "^0.21.1",
     "morgan": "^1.9.1",
